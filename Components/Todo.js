@@ -1,10 +1,13 @@
 import React from 'react'
-import { View, Text, StyleSheet,} from 'react-native'
+import { View, Text, Button,StyleSheet,} from 'react-native'
 
 const Todo = (props) =>{
     return (
         <View style={[styles.item,{margin:6,padding:4}]}>
             <Text>{props.item}</Text>
+            <Button title={'Delete'} color={'red'}
+            onPress={()=>props.delete(props.item)}
+            />
         </View>
     )
 }
