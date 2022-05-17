@@ -1,5 +1,5 @@
 import {React,useState} from 'react';
-import { View ,Text ,Button, StyleSheet} from 'react-native';
+import { View ,Text ,Button, StyleSheet,ScrollView,TextInput} from 'react-native';
 import Todo  from './Todo';
 const TodoList  = () =>{
     const [title, setTitle] = useState('Hello')
@@ -7,9 +7,14 @@ const TodoList  = () =>{
         <View style={{width:'80%', marginBottom: 60}}>
             
             <Text style={[styles.align,styles.font]}>{title}</Text>
-            <Todo name="Ubair Noor"/>
-            <Todo name="React Developer"/>
-            <Button title='Change Me'  onPress={()=>setTitle('Hello this is React Native Application')}/>
+           <ScrollView>
+               <Todo name={'First Todo'}/>
+               <Todo name={'Second Todo'}/>
+           </ScrollView>
+           <View>
+               <TextInput style={styles.input} />
+           </View>
+            <Button title='Add Item '  onPress={()=>setTitle('Hello this is React Native Application')}/>
            
         </View>
     )
@@ -22,6 +27,13 @@ const styles =  StyleSheet.create({
     font:{
         fontSize: 20,
         fontFamily:'bold'
+    },
+    input:{
+        borderRadius:5,
+        borderWidth:1,
+        marginBottom:8,
+        padding:8
+
     }
 })
 
